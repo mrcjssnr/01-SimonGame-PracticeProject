@@ -15,7 +15,19 @@ const nextSequence = function () {
   setTimeout(function() {
     document.querySelector("." + randomColor).classList.remove("pressed");
   }, 300);
+
+  // called the function playAudio
+  playAudio();
 }
 
-// Called the function
+
+// Called the function nextSequence
 nextSequence();
+
+// Play audio FUNCTION
+function playAudio() {
+  const audioHtml = `<audio src=\"./sounds/green.mp3\" autoplay></audio>`;
+  const hi = document.querySelector(".btn").insertAdjacentHTML("afterbegin", audioHtml);
+  console.log(hi);
+};
+
