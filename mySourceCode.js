@@ -37,6 +37,13 @@ function animateColor(color) {
   }, 300);
 }
 
+function startOver() {
+  gamePattern = [];
+  userClickedPattern = [];
+  level = 0;
+  start = true;
+}
+
 function checkAnswer(currentLevel) {
   // if the answer is correct proceed to next sequence
   if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
@@ -48,12 +55,16 @@ function checkAnswer(currentLevel) {
   } else {
     // if the answer is wrong or if the clicked button is not the same as the gamePattern, these codes will be executed
     playAudio("wrong");
-    document.querySelector("#level-title").textContent = "Game Over, Press Any Key to Restart";
     
+    document.querySelector("#level-title").textContent =
+      "Game Over, Press \"A\" key to Restart";
+
     document.querySelector("body").classList.add("game-over");
-    setTimeout(function() {
+    setTimeout(function () {
       document.querySelector("body").classList.remove("game-over");
-    }, 300)
+    }, 300);
+
+    startOver();
   }
 }
 
